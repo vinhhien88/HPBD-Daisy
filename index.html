@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HPBD Mỹ Diệu Daisy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="preload">
+
+    <!-- Enhanced animated background -->
+    <div class="bubbles" id="bubbles"></div>
+    <div class="bg-hearts" id="bgHearts"></div>
+
+    <div class="container">
+        <button id="music-btn" style="
+        width: 60px;
+        height: 60px;
+        border: none;
+        border-radius: 50%;
+        font-size: 28px;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    ">
+            ▶
+        </button>
+
+        <audio id="bg-music" loop>
+            <source src="nhac.mp3" type="audio/mpeg">
+        </audio>
+
+        <script>
+            const music = document.getElementById('bg-music');
+            const btn = document.getElementById('music-btn');
+
+            btn.addEventListener('click', () => {
+                if (music.paused) {
+                    music.play();
+                    btn.textContent = "⏸";
+                } else {
+                    music.pause();
+                    btn.textContent = "▶";
+                }
+            });
+
+            // Hiệu ứng hover (vì inline không hỗ trợ pseudo-class nên phải thêm qua JS)
+            btn.addEventListener('mouseover', () => {
+                btn.style.transform = "scale(1.1)";
+                btn.style.boxShadow = "0 6px 14px rgba(0,0,0,0.4)";
+            });
+            btn.addEventListener('mouseout', () => {
+                btn.style.transform = "scale(1)";
+                btn.style.boxShadow = "0 4px 10px rgba(0,0,0,0.3)";
+            });
+        </script>
+
+        <!-- Calculator screen -->
+        <div class="calculator-screen" id="calculatorScreen">
+            <div class="input-avatar-row">
+                <div class="avatar-square">
+                    <img id="avatarImg" src="img/mydieu.jpg" alt="Avatar" style="display:block;">
+                </div>
+
+                <div class="input-and-keypad">
+                    <div class="calculator-title">Nhập ngày sinh của Mỹ Diệu coiiii</div>
+                    <input type="password" class="display" id="display" placeholder="••••••••" maxlength="8">
+                    <div class="buttons">
+                        <button class="btn btn-number" onclick="appendToDisplay('1')">1</button>
+                        <button class="btn btn-number" onclick="appendToDisplay('2')">2</button>
+                        <button class="btn btn-number" onclick="appendToDisplay('3')">3</button>
+                        <button class="btn btn-number" onclick="appendToDisplay('4')">4</button>
+                        <button class="btn btn-number" onclick="appendToDisplay('5')">5</button>
+                        <button class="btn btn-number" onclick="appendToDisplay('6')">6</button>
+                        <button class="btn btn-number" onclick="appendToDisplay('7')">7</button>
+                        <button class="btn btn-number" onclick="appendToDisplay('8')">8</button>
+                        <button class="btn btn-number" onclick="appendToDisplay('9')">9</button>
+                        <button class="btn btn-clear" onclick="clearDisplay()">C</button>
+                        <button class="btn btn-number" onclick="appendToDisplay('0')">0</button>
+                        <button class="btn btn-enter" onclick="checkPassword()">✓</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Birthday screen nằm ngoài container -->
+    <div class="birthday-screen" id="birthdayScreen" style="display:none;">
+        <!-- Trang lời chúc đẹp -->
+        <div class="wishes-page" id="wishesPage">
+            <div class="main-title">
+                <h1 class="rainbow-text">💗CHÚC MỪNG SINH NHẬT💗</h1>
+                <div class="subtitle">Mỹ Diệu nháaaaa</div>
+                <div >*nhấn vào ảnh trước rùi hãy nhấn nút dưới*</div>
+
+            </div>
+
+            <!-- Thiệp 3D -->
+            <div class="birthday-card-section">
+                <div class="card-3d">
+                    <div class="card-imgBox">
+                        <div class="card-bark"></div>
+                        <img src="img/mydieu1.jpg" alt="Birthday">
+                    </div>
+                    <div class="card-details">
+                        <h4>HAPPY BIRTHDAY to Daisy</h4>
+                        <p>Chúc cậu sinh nhật thật nhìu niềm dui và hạnh phúc nhen🥳</p>
+                        <p>Tuổi mứi lun lun tràn đầy may mắn, học tập thuận lợi và đạt được nhìu thành công🥰</p>
+                        <p>Mong cậu lun xinh đẹp, tự tin, và giữ được nụ cười tươi mỗi ngày nè🤗</p>
+                        <p>Tủi mới – hành trình mới, mong mọi ước mơ của cậu đều trở thành hiện thực😎</p>
+                        <p>*À còn nếu có ước nghỉ chơi với tui thì sẽ hong bao giờ thành hiện thực đâu🙄😡*</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <button class="continue-btn" onclick="showLetter()">
+                Xem sự đáng iu ở đây
+            </button>
+        </div>
+
+        <!-- Gallery trái tim nằm ngoài container để nổi bật -->
+        <div id="heartGallery" class="heart-gallery" style="display:none;"></div>
+        <script src="lang.js"></script>
+</body>
+
+</html>
