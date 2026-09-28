@@ -636,7 +636,25 @@
                 height: 65px;
                 font-size: 24px;
                 padding: 0 20px;
+                width: 100%;
             }
+            
+            .input-avatar-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .input-and-keypad {
+                align-items: center;
+            }
+            
+            .input-and-keypad .calculator-title,
+            .input-and-keypad .display,
+            .input-and-keypad .buttons {
+                align-self: center;
+            }
+            
             
             .btn {
                 height: 60px;

@@ -282,13 +282,19 @@
 
     <script>
         const heartImages = [
-            "img/mydieu2.jpg", "img/mydieu8.jpg", "img/mydieu14.jpg", "img/mydieu17.jpg", "img/mydieu24.jpg",
-            "img/mydieu3.jpg", "img/mydieu9.jpg", "img/mydieu1.jpg", "img/mydieu19.jpg","img/mydieu25.jpg",
-            "img/mydieu4.jpg", "img/mydieu10.jpg", "img/mydieu.jpg", "img/mydieu20.jpg", 
-            "img/mydieu5.jpg", "img/mydieu11.jpg", "img/mydieu15.jpg", "img/mydieu21.jpg",
-            "img/mydieu6.jpg", "img/mydieu12.jpg", "img/mydieu16.jpg", "img/mydieu22.jpg", 
-            "img/mydieu7.jpg", "img/mydieu13.jpg", "img/mydieu18.jpg", "img/mydieu23.jpg"
-
+            "img_new/mydieu1.jpg", "img_new/mydieu2.jpg", "img_new/mydieu3.jpg", "img_new/mydieu4.jpg", "img_new/mydieu5.jpg",
+            "img_new/mydieu6.jpg", "img_new/mydieu7.jpg", "img_new/mydieu8.jpg", "img_new/mydieu9.jpg", "img_new/mydieu10.jpg",
+            "img_new/mydieu11.jpg", "img_new/mydieu12.jpg", "img_new/mydieu13.jpg", "img_new/mydieu14.jpg", "img_new/mydieu15.jpg",
+            "img_new/mydieu16.jpg", "img_new/mydieu17.jpg", "img_new/mydieu18.jpg", "img_new/mydieu19.jpg", "img_new/mydieu20.jpg",
+            "img_new/mydieu21.jpg", "img_new/mydieu22.jpg", "img_new/mydieu23.jpg", "img_new/mydieu24.jpg", "img_new/mydieu25.jpg",
+            "img_new/mydieu26.jpg", "img_new/mydieu27.jpg", "img_new/mydieu28.jpg", "img_new/mydieu29.jpg", "img_new/mydieu30.jpg",
+            "img_new/mydieu31.jpg", "img_new/mydieu32.jpg", "img_new/mydieu33.jpg", "img_new/mydieu34.jpg", "img_new/mydieu35.jpg",
+            "img_new/mydieu36.jpg", "img_new/mydieu37.jpg", "img_new/mydieu38.jpg", "img_new/mydieu39.jpg", "img_new/mydieu40.jpg",
+            "img_new/mydieu41.jpg", "img_new/mydieu42.jpg", "img_new/mydieu43.jpg", "img_new/mydieu44.jpg", "img_new/mydieu45.jpg",
+            "img_new/mydieu46.jpg", "img_new/mydieu47.jpg", "img_new/mydieu48.jpg", "img_new/mydieu49.jpg", "img_new/mydieu50.jpg",
+            "img_new/mydieu51.jpg", "img_new/mydieu52.jpg", "img_new/mydieu53.jpg", "img_new/mydieu54.jpg", "img_new/mydieu55.jpg",
+            "img_new/mydieu56.jpg", "img_new/mydieu57.jpg", "img_new/mydieu58.jpg", "img_new/mydieu59.jpg", "img_new/mydieu60.jpg",
+            "img_new/mydieu61.jpg"
         ];
 
         // Tạo hiệu ứng pháo hoa
@@ -343,11 +349,18 @@
             const randomShadow = shadowColors[Math.floor(Math.random() * shadowColors.length)];
             img.style.boxShadow = `0 10px 30px ${randomShadow}`;
             
+            let scaleFactor = 1;
+            if (window.innerWidth <= 480) {
+                scaleFactor = 0.5;
+            } else if (window.innerWidth <= 768) {
+                scaleFactor = 0.7;
+            }
+            
             const widths = [177, 170, 220, 188, 210, 240, 225,193];
             const heights = [300,310, 150, 290, 210, 180, 380,330];
             const sizeIndex = Math.floor(Math.random() * widths.length);
-            img.style.width = widths[sizeIndex] + 'px';
-            img.style.height = heights[sizeIndex] + 'px';
+            img.style.width = (widths[sizeIndex] * scaleFactor) + 'px';
+            img.style.height = (heights[sizeIndex] * scaleFactor) + 'px';
             
             // Cải thiện chất lượng ảnh
             img.style.imageRendering = 'high-quality';
@@ -393,11 +406,18 @@
             const randomShadow = shadowColors[Math.floor(Math.random() * shadowColors.length)];
             img.style.boxShadow = `0 9px 25px ${randomShadow}`;
             
+            let scaleFactor = 1;
+            if (window.innerWidth <= 480) {
+                scaleFactor = 0.5;
+            } else if (window.innerWidth <= 768) {
+                scaleFactor = 0.7;
+            }
+            
             // Kích thước hình vuông
             const sizes = [210, 240, 220, 230, 250, 210, 215, 235];
             const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
-            img.style.width = randomSize + 'px';
-            img.style.height = randomSize + 'px';
+            img.style.width = (randomSize * scaleFactor) + 'px';
+            img.style.height = (randomSize * scaleFactor) + 'px';
             
             // Cải thiện chất lượng ảnh
             img.style.imageRendering = 'high-quality';
